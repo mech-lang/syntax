@@ -421,7 +421,7 @@ named!(paragraph_rest<CompleteStr, Node>, do_parse!(
   (Node::Text{children: word})));
 
 named!(identifier<CompleteStr, Node>, do_parse!(
-  identifier: map!(tuple!(count!(word,1), many0!(alt!(dash | slash | word | number))), |tuple| {
+  identifier: map!(tuple!(count!(word,1), many0!(alt!(dash | slash | word | number | underscore))), |tuple| {
     let (mut word, mut rest) = tuple;
     word.append(&mut rest);
     word
