@@ -139,6 +139,12 @@ block
 block
   #test = #ball.x + #ball.y * #ball.vx", Value::from_i64(177));
 
+test_mech!(math_multiple_rows_select_underscores,"
+block
+  #stream_probe = [discharge: 5 stream_width: 2 stream_depth: 2]
+block
+  #test = #stream_probe.stream_width * #stream_probe.stream_depth * #stream_probe.discharge", Value::from_i64(20));
+
 test_mech!(math_const_and_select,"
 block
   #ball = [x: 15 y: 9 vx: 18 vy: 0]
